@@ -47,7 +47,7 @@
                       <label class="form-label" for="typePasswordX">Contraseña</label>
                       <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Contraseña"/>
                     </div>
-
+                    <div><h1>PENEEEEE</h1></div>
                     <button class="btn btn-outline-light btn-lg px-3" type="submit" id="login_button">Login</button>
 
                   </div>
