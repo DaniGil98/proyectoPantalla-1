@@ -47,8 +47,18 @@
                       <label class="form-label" for="typePasswordX">Contraseña</label>
                       <input type="password" id="typePasswordX" class="form-control form-control-lg" placeholder="Contraseña"/>
                     </div>
-                    <div><h1>PENEEEEE</h1></div>
-                    <button class="btn btn-outline-light btn-lg px-3" type="submit" id="login_button">Login</button>
+                    
+                    <!--Cambie el html para que cuando le des al boton vaya a la siguiente pantalla, puse una pantalla de prueba...-->
+                    <div class="row">
+                        <div class="col-12">
+                            <form method="GET" action="Prueba.jsp">    
+                                <div class="d-grid gap-2">
+                                    <input type="hidden" name="accion" value="Login">
+                                    <input class="btn btn-success" type="submit" value="Login">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
                   </div>
                 </div>
