@@ -52,5 +52,20 @@ public class GestionUsuarios {
             return false;
         }
     }
+        public boolean modificarUsuario(int id, Usuario usu){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE usuarios SET usuario=?,contraseña=? WHERE id=?");
+            
+            stmt.setString(1,usu.getUsuario());
+            stmt.setString(2,usu.getContrasena());
+            stmt.setInt(4,id);            
+            stmt.executeUpdate();
+            return true;
+            
+        }catch(SQLException ex){
+            System.out.println("Error al modificar noticia: " + ex);
+            return false;
+        }
+    }
     
 }
