@@ -49,4 +49,20 @@ public class GestionAdministradores {
             return false;
         }
     }
+        public boolean modificarAdministrador(int id, Administrador admin){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE administradores SET usuario=?,contraseña=? WHERE id=?");
+            
+            stmt.setString(1,admin.getUsuario());
+            stmt.setString(2,admin.getContrasena());    
+            stmt.setInt(3,id);            
+            stmt.executeUpdate();
+            return true;
+            
+        }catch(SQLException ex){
+            System.out.println("Error al modificar administrador: " + ex);
+            return false;
+        }
+    }
+    
 }
