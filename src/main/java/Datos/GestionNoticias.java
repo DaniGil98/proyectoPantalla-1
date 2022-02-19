@@ -9,6 +9,7 @@ import Conexión.MyConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -41,6 +42,36 @@ public class GestionNoticias {
             return true;
         }catch(SQLException ex){
             System.out.println("Error al insertar noticia");
+            return false;
+        }
+    }
+    
+    public boolean modificarNoticia(int id, Noticia noti){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("UPDATE noticias SET url=?,fecha=?,duracion=? WHERE id=?");
+            
+            stmt.setString(1,noti.getUrl());
+            stmt.setDate(2, (java.sql.Date) noti.getFecha());
+            stmt.setDate(3, (java.sql.Date) noti.getDuracion());
+            stmt.setInt(4,id);            
+            stmt.executeUpdate();
+            return true;
+            
+        }catch(SQLException ex){
+            System.out.println("Error al modificar noticia: " + ex);
+            return false;
+        }
+    }
+    
+        public boolean eliminarNoticia(int id){
+        try{
+            PreparedStatement stmt = connection.prepareStatement("DELETE FROM noticias WHERE id=?");
+            stmt.setInt(1,id);
+            
+            stmt.executeUpdate();
+            return true;
+        }catch(SQLException ex){
+            System.out.println("Error al eliminar noticia: " + ex);
             return false;
         }
     }
